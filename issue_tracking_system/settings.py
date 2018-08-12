@@ -81,9 +81,9 @@ DATABASES = {
     # }
     'default':{
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jira',
-        'USER': 'root',
-        'PASSWORD': 'aJcqTj2uh53CAb2m',
+        'NAME': 'jira_dev',
+        'USER': 'jira',
+        'PASSWORD': 'Jira@1234',
         'HOST': 'localhost',
         'PORT': '3306',
     }
