@@ -9,6 +9,32 @@
       <meta name="viewport" content="width=device-width initial-scale=1">
     </head>
     <body>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4" style="text-align: center;padding:40px;background-color:gray;">ISSUE TRACKING SYSTEM</h1>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ BASE_URL }}">ITS</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/users/">USER<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/projects/">PROJECT<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/issues/">ISSUE<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/comments/">COMMENTS<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     {% block content %}
     {% endblock %}
   </body>
