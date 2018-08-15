@@ -10,6 +10,18 @@ def home(request):
     print(user_list)
     return render(request, 'home.html')
 
-    
+
 def user(request):
     return render(request, 'user.html')
+
+
+def projects(request):
+    return render(request, 'project.html')
+
+
+def issues(request):
+    return render(request, 'issue.html')
+
+
+def comments(request):
+    return render(request, 'comments.html')
