@@ -4,10 +4,11 @@ from django.db import models
 from app.models.models import User
 
 
-# Create your views here.
+# Create your views here
 def home(request):
-    user_list = User.objects.get(pk=1)
-    print(user_list)
+    user = User.objects.get(pk=1)
+    print(user.full_name)
+    print(user)
     return render(request, 'home.html')
 
 
