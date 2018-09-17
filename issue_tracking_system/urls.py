@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import handler404, handler500
 
+# App Imports
 from app import views
 from app.views import LoginView, IssueView, IssueDetailsView
 
@@ -38,5 +40,7 @@ urlpatterns = [
     # path('issue/<int:issue_id>/', IssueDetailsView.as_view(), name='issue_by_id'),
 
     path('admin/', admin.site.urls),
-
 ]
+
+handler404 = views.error_404
+handler500 = views.error_500
