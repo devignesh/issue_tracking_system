@@ -15,16 +15,32 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import handler404, handler500
 
+# App Imports
 from app import views
+from app.views import LoginView, IssueView, IssueDetailsView
 
 urlpatterns = [
     path('', views.home, name='home'),
+    # Login
+    path('login/', LoginView.as_view(), name='login'),
+
     path('users/', views.user, name='user'),
     path('projects/', views.projects, name='projects'),
     path('issues/', views.issues, name='issues'),
     path('comments/', views.comments, name='comments'),
 
-    path('admin/', admin.site.urls),
+    # get all issue GET
+    # create issue POST
+    # path('issue/', IssueView.as_view(), name='issue'),
+    # get issue details by id GET
+    # update issue PATCH
+    # delete issue DELETE
+    # path('issue/<int:issue_id>/', IssueDetailsView.as_view(), name='issue_by_id'),
 
+    path('admin/', admin.site.urls),
 ]
+
+handler404 = views.error_404
+handler500 = views.error_500

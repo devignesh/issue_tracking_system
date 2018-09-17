@@ -25,8 +25,8 @@ class User(models.Model):
         self.updated_at = timezone.now()
         self.save()
 
-    def __str__(self):
-        return self.email
+    def full_name(self):
+        return '%s %s'.format(self.first_name, self.last_name)
 
 
 class Project(models.Model):
