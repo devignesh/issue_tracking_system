@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-      {% load static %}
-      <link type="text/css" rel="stylesheet" href="{% static "css/bootstrap/bootstrap.min.css" %}">
-      <link type="text/css" rel="stylesheet" href="{% static "css/issue_tracker.css" %}">
-      <script src="{% static "js/jquery.min.js" %}"></script>
-      <script src="{% static "js/bootstrap.min.js" %}"></script>
-      <script src="{% static "js/bootstrap.bundle.js" %}"></script>
-      <meta name="viewport" content="width=device-width initial-scale=1">
+        {% load static %}
+        <!-- CSS -->
+        <link type="text/css" rel="stylesheet" href="{% static "css/bootstrap/bootstrap.min.css" %}">
+        <link type="text/css" rel="stylesheet" href="{% static "css/issue_tracker.css" %}">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <!-- js -->
+        <script src="{% static "js/jquery.min.js" %}"></script>
+        <script src="{% static "js/bootstrap.min.js" %}"></script>
+        <script src="{% static "js/bootstrap.bundle.js" %}"></script>
+        <meta name="viewport" content="width=device-width initial-scale=1">
     </head>
     <body>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4" style="text-align: center;padding:40px;background-color:gray;">ISSUE TRACKING SYSTEM</h1>
-            </div>
-        </div>
-        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar navbar-light bg-white">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ BASE_URL }}">ITS</a>
+                    <a href="{{ BASE_URL }}" class="logo">
+                        <img class="logo-img" src="{% static "images/logo/logo1.png" %}" alt="Jira Logo">
+                        <span class="logo-txt">Issue Tracker</span>
+                    </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ BASE_URL }}/users/">USER<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ BASE_URL }}/users/">User<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ BASE_URL }}/projects/">PROJECT<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ BASE_URL }}/projects/">Projects<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ BASE_URL }}/issues/">ISSUE<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ BASE_URL }}/issues/">Issue<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ BASE_URL }}/comments/">COMMENTS<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ BASE_URL }}/comments/">Comments<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/login/">Login<span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
                 </div>
