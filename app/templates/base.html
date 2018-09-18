@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <!-- CSS -->
+        <link type="text/css" rel="stylesheet" href="{% static "css/bootstrap/bootstrap.min.css" %}">
+        <link type="text/css" rel="stylesheet" href="{% static "css/issue_tracker.css" %}">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <!-- js -->
+        <script src="{% static "js/jquery.min.js" %}"></script>
+        <script src="{% static "js/bootstrap.min.js" %}"></script>
+        <script src="{% static "js/bootstrap.bundle.js" %}"></script>
+        <meta name="viewport" content="width=device-width initial-scale=1">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar navbar-light bg-white">
+            <div class="container-fluid">
+                    <a href="{{ BASE_URL }}" class="logo">
+                        <img class="logo-img" src="{% static "images/logo/logo1.png" %}" alt="Jira Logo">
+                        <span class="logo-txt">Issue Tracker</span>
+                    </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/users/">User<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/projects/">Projects<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/issues/">Issue<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/comments/">Comments<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/login/">Login<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+  </body>
+</html>

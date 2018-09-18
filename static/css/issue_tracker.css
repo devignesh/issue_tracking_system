@@ -1,0 +1,23 @@
+form {
+    margin-bottom: 25px;
+}
+.bg-white{
+    background-color: #FFF !important;
+}
+body {
+    background-color: #F4F5F7;
+}
+.logo {
+    text-decoration: none !important;
+}
+.logo-img{
+    height: 60px;
+    width: 60px;
+}
+.logo-txt {
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
+    color: #172B4D;
+    position: relative;
+    top: 2px;
+}

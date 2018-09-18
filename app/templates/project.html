@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br>
+    <br>
+<form>
+<div class="form-group">
+ <label >PROJECT ID</label>
+ <input type="text" class="form-control" placeholder="Enter PROJECTID" required>
+ </div>
+ <div class="form-group">
+<label>TITLE</label>
+<input type="text" class="form-control" placeholder="Enter TITLE" required>
+ </div>
+ <div class="form-group">
+        <label>DESCRIPTION</label>
+        <textarea class="form-control" rows="10" placeholder="Enter the Description" required></textarea>
+      </div>
+      <div class="form-group">
+            <label>LANGUAGE</label>
+            <select class="form-control" name="language" required>
+            <option value="python">PYTHON</option>
+            <option value="java">JAVA</option>
+            <option value="php">PHP</option>
+            <option value="JS">JS</option>
+            <option value="html/css">HTML/CSS</option>
+            <option value=".net">DOTNET</option>           
+             </select>
+            </div> 
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary">CREATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <button type="submit" class="btn btn-primary">CANCEL</button>
+        </form>
+    {% endblock %}   

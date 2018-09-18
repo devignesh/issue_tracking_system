@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br>
+    <br>
+<form>
+<div class="form-group">
+<label >COMMENT ID</label>
+<input type="text" class="form-control" placeholder="Enter COMMENTID" required>
+</div>
+<div class="form-group">
+        <label >ISSUE ID</label>
+        <input type="text" class="form-control" placeholder="Enter ISSUEID" required>
+        </div>
+        <div class="form-group">
+                <label >USER ID</label>
+                <input type="text" class="form-control" placeholder="Enter USERID" required>
+                </div>
+<div class="form-group">
+        <label>COMMENT</label>
+        <textarea class="form-control" rows="10" placeholder="Enter the Comment" required></textarea>
+      </div>
+<br>
+<br>
+<button type="submit" class="btn btn-primary">COMMENT</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<button type="submit" class="btn btn-primary">NEW COMMENT</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="submit" class="btn btn-primary">CANCEL</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+</form>
+{% endblock %}

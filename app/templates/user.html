@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <br>
+    <br>
+<form>
+<div class="form-group">
+<label >USER ID</label>
+<input type="text" class="form-control" placeholder="Enter USERID" required>
+</div>
+<div class="row">
+<div class="col">
+<label>FIRST NAME</label>
+<input type="text" class="form-control" placeholder="First name"required >
+</div>
+<div class="col">
+<label>LAST NAME</label>
+<input type="text" class="form-control" placeholder="Last name" required>
+</div>
+</div>
+<div class="form-group">
+<label>EMAIL</label>
+<input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter EMAIL" required>
+        
+</div>
+<div class="form-group">
+<label>PASSWORD</label>
+<input type="password" class="form-control" placeholder="Enter PASSWORD" required>
+ </div>
+<div class="form-group">      
+<label>DATE OF BIRTH</label>
+<input type="date" class="form-control" placeholder="Select DOB" required>
+</div>
+<div class="form-group">
+<label>ACCESS TOKEN</label>
+<input type="text" class="form-control">
+</div>
+<div class="form-group">
+<label>ROLE</label>
+<select class="form-control" name="role">
+<option value="staff">STAFF</option>
+<option value="admin">ADMIN</option>
+ </select>
+</div>
+<div class="form-group">
+        <label>STATUS</label>
+        <select class="form-control" name="status">
+        <option value="staff">ACTIVE</option>
+        <option value="admin">INACTIVE</option>
+         </select>
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">CREATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <button type="submit" class="btn btn-primary">CANCEL</button>
+    </form>
+{% endblock %}
