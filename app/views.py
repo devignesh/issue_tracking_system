@@ -1,19 +1,25 @@
+from django.core import serializers
 from django.shortcuts import render
 from django.db import models
 from django.views import generic, View
+from django.http import (
+    JsonResponse, 
+    HttpResponse, 
+    HttpResponseRedirect
+)
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout as django_logout
 
 # App imports.
-from app.models.models import User
+from app.models import Commands, Issue, Project, User
 
 
 # Create your views here
 def home(request):
-    user = User.objects.get(pk=1)
-    print(user.full_name)
-    print(user)
     return render(request, 'home.html')
 
 
+@login_required(login_url='/login/')
 def user(request):
     return render(request, 'user.html')
 
@@ -21,7 +27,7 @@ def user(request):
 def projects(request):
     return render(request, 'project.html')
 
-
+@login_required(login_url='/login/')
 def issues(request):
     return render(request, 'issue.html')
 
@@ -32,24 +38,50 @@ def comments(request):
 
 def error_404(request):
         data = {}
-        return render(request,'error_404.html', data)
+        return render(request, 'error_404.html', data)
+
 
 def error_500(request):
         data = {}
-        return render(request,'error_500.html', data)
+        return render(request, 'error_500.html', data)
+
+
+@login_required(login_url='/login/')
+def logout(request):
+    django_logout(request)
+    return HttpResponseRedirect('/')
+
 
 class LoginView(View):
-    def get(self, request):
-        return render(request, 'login.html')
 
-    def post_login(request):
+    def get(self, request):
+        return render(request, 'registration/login.html')
+
+    def post(self, request, *args, **kwargs):
+        logout(request)
+        next_page = request.GET.get('next', '/')
         username = request.POST.get('username', None)
         password = request.POST.get('password', None)
+        print(next_page)
 
-        user = User.objects.get(email=username, password=password)
-        if not user:
-            return HttpResponse(serialize_object(user, True), content_type='application/json')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                responseData = {
+                    'data': {
+                        'message': 'success',
+                        'redirect_url': next_page
+                    },
+                    'meta': {
+                        'status_code': 200
+                    }
+                }
+                return JsonResponse(responseData, status=200)
+            return HttpResponse("HTTP_403_FORBIDDEN", status=403)
+
         return HttpResponse('UNAUTHORIZED', status=401)
+
 
 class IssueView(View):
 
@@ -112,3 +144,15 @@ class IssueDetailsView(View):
 
         return HttpResponse('No Content', status=204)
 
+
+def serialize_object(obj, is_first_obj):
+    if is_first_obj:
+        data = serializers.serialize('json', [obj])
+        struct = json.loads(data)
+        data = json.dumps(struct[0])
+        return data
+
+    data = serializers.serialize('json', obj)
+    struct = json.loads(data)
+    data = json.dumps(struct)
+    return data

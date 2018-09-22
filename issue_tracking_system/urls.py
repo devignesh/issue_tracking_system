@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from django.views.generic.base import TemplateView
 from django.conf.urls import handler404, handler500
 
 # App Imports
@@ -25,6 +27,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     # Login
     path('login/', LoginView.as_view(), name='login'),
+    path('logout/', views.logout, name='logout'),
 
     path('users/', views.user, name='user'),
     path('projects/', views.projects, name='projects'),

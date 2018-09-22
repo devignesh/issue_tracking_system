@@ -2,6 +2,7 @@
 <html>
     <head>
         {% load static %}
+        <title>{% block title %}{% endblock %}</title>
         <!-- CSS -->
         <link type="text/css" rel="stylesheet" href="{% static "css/bootstrap/bootstrap.min.css" %}">
         <link type="text/css" rel="stylesheet" href="{% static "css/issue_tracker.css" %}">
@@ -21,6 +22,12 @@
                     </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                            Hi {{ user.email }}!
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ BASE_URL }}/logout/">Logout<span class="sr-only">(current)</span></a>
+                            </li>
+                    {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ BASE_URL }}/users/">User<span class="sr-only">(current)</span></a>
                         </li>
@@ -36,6 +43,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ BASE_URL }}/login/">Login<span class="sr-only">(current)</span></a>
                         </li>
+                    {% endif %}
+                       
                     </ul>
                 </div>
             </div>
