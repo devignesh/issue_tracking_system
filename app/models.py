@@ -10,7 +10,7 @@ class BaseTime(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
     deleted_at = models.DateTimeField(blank=True, null=True)
-
+    
     class Meta:
         abstract = True
 
@@ -114,19 +114,21 @@ class Issue(BaseTime):
     Issue table holds all the issue for the projects
     """
     STATUS_OPEN = 'O'
-    STATUS_CLOSED = 'O'
+    STATUS_INPROGRESS = 'IP'
+    STATUS_CLOSED = 'C'
     STATUS_CHOICES = (
         (STATUS_OPEN, 'Open'),
+        (STATUS_INPROGRESS, 'InProgress'),
         (STATUS_CLOSED, 'Closed'),
     )
 
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=500)
     description = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     assignee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='assignee_id')
-    # assignee_id = models.IntegerField()
     labels = models.CharField(max_length=50)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES, default=STATUS_OPEN)
+    commands = models.ManyToManyField('Commands', related_name='commands_list')
 
 
 class Commands(BaseTime):
@@ -134,5 +136,5 @@ class Commands(BaseTime):
     Commands table holds all the discussions.
     """
     comment = models.TextField()
-    issue = models.ForeignKey(Issue, on_delete=models.CASCADE)
+    issue = models.ForeignKey(Issue, on_delete=models.CASCADE, related_name="issue_id")
     user = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -3,10 +3,12 @@
     <head>
         {% load static %}
         <title>{% block title %}{% endblock %}</title>
+        <link rel="icon" type="image/png" href="{% static "images/favicon.png" %}" sizes="32x32">
         <!-- CSS -->
         <link type="text/css" rel="stylesheet" href="{% static "css/bootstrap/bootstrap.min.css" %}">
         <link type="text/css" rel="stylesheet" href="{% static "css/issue_tracker.css" %}">
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <!-- js -->
         <script src="{% static "js/jquery.min.js" %}"></script>
         <script src="{% static "js/bootstrap.min.js" %}"></script>
@@ -17,28 +19,34 @@
         <nav class="navbar navbar-expand-lg navbar navbar-light bg-white">
             <div class="container-fluid">
                     <a href="{{ BASE_URL }}" class="logo">
-                        <img class="logo-img" src="{% static "images/logo/logo1.png" %}" alt="Jira Logo">
+                        <img class="logo-img" src="{% static "images/logo/jira-logo.png" %}" alt="Jira Logo">
                         <span class="logo-txt">Issue Tracker</span>
                     </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                    {% if user.is_authenticated %}
-                            Hi {{ user.email }}!
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ BASE_URL }}/logout/">Logout<span class="sr-only">(current)</span></a>
-                            </li>
-                    {% else %}
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="{{ BASE_URL }}/users/">User<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
+                        </li> -->
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="{{ BASE_URL }}/projects/">Projects<span class="sr-only">(current)</span></a>
+                        </li> -->
+                        
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/comments/">Comments<span class="sr-only">(current)</span></a>
+                        </li> -->
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: #fff;">Hi, {{ user.first_name|title }}!<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ BASE_URL }}/issues/">Issue<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ BASE_URL }}/comments/">Comments<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ BASE_URL }}/logout/">Logout<span class="sr-only">(current)</span></a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ BASE_URL }}/issues/">Issue<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ BASE_URL }}/login/">Login<span class="sr-only">(current)</span></a>
