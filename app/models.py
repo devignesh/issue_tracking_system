@@ -53,9 +53,9 @@ class UserManager(BaseUserManager):
             email,
             password=password,
         )
-        #user.admin = True
+        user.access_token = access_token
         user.is_staff = True
-        user.is_admin = True
+        user.is_superuser = True
         user.save(using=self._db)
         return user
 
