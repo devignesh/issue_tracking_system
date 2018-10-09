@@ -1,7 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-# from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import PermissionsMixin
+from django.contrib.auth.hashers import make_password
 
 # Create your models here.
 
@@ -40,11 +41,11 @@ class UserManager(BaseUserManager):
             email,
             password=password,
         )
-        user.staff = True
+        user.is_staff = True
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password):
+    def create_superuser(self, email, access_token, password):
         """
         Creates and saves a superuser with the given email and password.
         """
@@ -52,13 +53,14 @@ class UserManager(BaseUserManager):
             email,
             password=password,
         )
-        user.staff = True
-        user.admin = True
+        #user.admin = True
+        user.is_staff = True
+        user.is_admin = True
         user.save(using=self._db)
         return user
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     """
     User table holds the user basic details.
     """
@@ -73,6 +75,7 @@ class User(AbstractBaseUser):
     date_of_birth = models.CharField(max_length=30)
     role = models.CharField(max_length=30)
     is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
 
     objects = UserManager()
 
