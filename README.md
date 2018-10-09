@@ -5,3 +5,7 @@ Issue Tracking System. It provides bug tracking, issue tracking, and project man
 ## Test user credentials
 mani@jira.com
 qwerty123
+
+### Admin credentials
+admin@jira.com
+qwerty123
