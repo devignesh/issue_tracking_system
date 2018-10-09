@@ -1,51 +1,99 @@
 {% extends 'base.html' %}
-{% block content %}
+{% block title %}Jira | Home{% endblock %}
 
-    <br>
-    <br>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-        </ol>
-        <div class="carousel-inner">
-          {% load static %}
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="{% static "images/issue4.jpg" %}" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{% static "images/issue1.jpg" %}" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{% static "images/issue2.jpg" %}" alt="Third slide">
-          </div>
-          <div class="carousel-item">
-              <img class="d-block w-100" src="{% static "images/issue3.png" %}" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{% static "images/issue.jpg" %}" alt="Third slide">
-              </div>
-              <div class="carousel-item">
-                  <img class="d-block w-100" src="{% static "images/issue5.jpg" %}" alt="Third slide">
-                </div>
-              </div>
+{% block content %}
+{% load static %}
+
+<div class="col-md-12 row">
+    <div class="col-md-3">
+        <h1 class="heading">The #1 software development tool used by agile teams</h1>
+    </div>
+    <div class="col-md-7 home-market-main"></div>    
+</div>
+
+<div class="col-md-12 home-market-two">
+    <h1>Fix bugs fast and ship great software.</h1>
+    <p>A simple, fast and scalable bug tracking application that helps you manage bugs easily and deliver great products on time.</p>
+</div>
+
+<div class="column column-md-10 column-lg-8 column-md-offset-1 column-lg-offset-2 lg-outerspace lg-outerspace md-comfortable sm-cozy hide-xs hide-sm text-center"> 
+  <div class="imkt-animation"> 
+    <img src="{% static "css/workflow_timeline_desktop-temporary.svg" %}" alt="Animation placeholder"> 
+    </div>
+</div>
+
+<div class="col-md-12 row" style="margin-top: 50px;">
+  <div class="home-feature-box box-1">
+    <div>
+      <span></span>
+      <h3>Track and report bugs.</h3>
+      <h4>Track bugs by status, severity, and user. Get insights on progress with bug reports.</h4>
+      <br />
+      <p>"Any development project can be a real pain, especially when you're working with software teams that are scattered across the globe.
+         You need to feel that you're in total control of the situation. 
+         And Our IssueTracker gives you all that. 
+         Our collaborative dashboard allows you to see the latest updates and stay on top of what's going on within seconds."</p>
+    </div>
+  </div>
+  <div class="home-feature-box box-2">
+      <div>
+        <span></span>
+        <h3>Automated bug tracking.</h3>
+        <h4>Set business rules to automatically trigger actions for bug events. Select events to send email notifications to assignees, reporters and other users.</h4>
+        <br />
+        <p>"We've built a flexible and easy to use bug tracking application that you and your customers will love. Take a few minutes and learn how to customize your project with workflows, business rules and classify bugs easily to reflect your company’s unique needs."</p>
       </div>
-      <footer class="page-footer font-small cyan darken-3">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 py-5">
-                <div class="mb-5 flex-center">
-                    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-                      <a href="{{ BASE_URL }}/users/">> ISSUE TICKET SYS</a>
-                    </div>
-                  </div>
-                </div>
+  </div> 
+  <div class="home-feature-box box-3">
+      <div>
+          <span></span>
+          <h3>Define custom workflows.</h3>
+          <h4>Create custom workflows, statuses, and fields to tailor BugTracker to your needs.</h4>
+          <br />
+          <p>"Custom workflows let you define individual workflows for different projects. Every workflow is made up of a sequence of steps along with transitions. It's easy to customise workflows by editing an existing workflow or create one from scratch.
+              "</p>
+        </div>
+  </div> 
+  <div class="home-feature-box box-4">
+      <div>
+          <span></span>
+          <h3>Create custom views.</h3>
+          <h4>Create custom views based on users and bug severity to stay organized and focused on what's most important.</h4>
+          <br />
+          <p>"Never let another bug slip through the cracks. With Oue IssueTracker, you can organize bugs in an easy way that ensures you keep track of every single bug. With this, keep your developers focused, your customers in loop with the progress and put everyone on the same page."</p>
+        </div>
+  </div> 
+  <div class="home-feature-box box-5">
+      <div>
+          <span></span>
+          <h3>Integrated with repositories.</h3>
+          <h4>Monitor code changes from within BugTracker with GitHub and Bitbucket integrations.</h4>
+          <br />
+          <p>"GitHub is an extremely fast, efficient, distributed version control system ideal for the collaborative development of software. You can quickly comment on changes, track issues, compare branches and view them as changesets in IssueTracker."</p>
+        </div>
+  </div> 
+  <div class="home-feature-box box-6">
+      <div>
+          <span></span>
+          <h3>Organize and manage files.</h3>
+          <h4>Manage your files with ease using folders. Tag files with intuitive labels and keep track of changes with version history.</h4>
+          <br />
+          <p>"Every project runs on many sources of information like documents, spreadsheets, video clips, images and more. Often these files are present in different places and on different computers. With IssueTracker, put all your files in a central place for your team and make their life easier."</p>
+        </div>
+  </div> 
+</div>
+
+    
+<footer class="page-footer font-small cyan darken-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="flex-center">
+              <div class="footer-copyright text-center py-3">© 2018 Copyright: Jira Software Pvt Ltd.,
               </div>
+            </div>
           </div>
-                                              
-      </footer>
+      </div>
+  </div>
+</footer>
 {% endblock %}
