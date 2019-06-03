@@ -41,7 +41,7 @@ def comments(request):
     return render(request, 'comments.html')
 
 
-def error_404(request):
+def error_404(request, exception):
         data = {}
         return render(request, 'error_404.html', data)
 
